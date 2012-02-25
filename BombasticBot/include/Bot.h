@@ -4,8 +4,7 @@
 
 #include "State.h"
 
-struct Bot
-{
+struct Bot {
 	/** Current state of the game. */
 	State state;
 

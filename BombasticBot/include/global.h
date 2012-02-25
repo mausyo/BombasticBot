@@ -50,11 +50,11 @@ const int SOUTH = 2;
 const int WEST = 3;
 
 /** Pretty printing aids. */
-const char DIRECTION_LETTER[NUMBER_DIRECTIONS] = { 'N', 'E', 'S', 'W' };
+const char DIRECTION_LETTER[NUMBER_DIRECTIONS] = {'N', 'E', 'S', 'W'};
 
 /** Direction vectors. */
-const int ROW_DIRECTION[NUMBER_DIRECTIONS] = { -1, 0, 1, 0 };
-const int COLUMN_DIRECTION[NUMBER_DIRECTIONS] = { 0, 1, 0, -1 };
+const int ROW_DIRECTION[NUMBER_DIRECTIONS] = {-1, 0, 1, 0};
+const int COLUMN_DIRECTION[NUMBER_DIRECTIONS] = {0, 1, 0, -1};
 
 #endif
 

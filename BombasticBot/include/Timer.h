@@ -2,51 +2,44 @@
 #define TIMER_H_
 
 /* Struct for checking how long it has been since the start of the turn. */
-#ifdef _WIN32 //Windows timer (DON'T USE THIS TIMER UNLESS YOU'RE ON WINDOWS!)
+#ifdef _WIN32 // Windows timer (DON'T USE THIS TIMER UNLESS YOU'RE ON WINDOWS!)
 
 #include <ctime>
 #include <io.h>
 #include <windows.h>
 
-struct Timer
-{
+struct Timer {
 	clock_t startTime, currentTime;
 
-	void start()
-	{
+	void start() {
 		startTime = std::clock();
-	};
+	}
 
-	double getTime()
-	{
+	double getTime() {
 		currentTime = std::clock();
-
 		return (double)(currentTime - startTime);
-	};
+	}
 };
 
 #else //Mac/Linux Timer
 
 #include <sys/time.h>
-struct Timer
-{
+struct Timer {
 	timeval timer;
 	double startTime, currentTime;
 
 	/* Starts the timer. */
-	void start()
-	{
+	void start() {
 		gettimeofday(&timer, NULL);
 		startTime = timer.tv_sec+(timer.tv_usec/1000000.0);
-	};
+	}
 
 	/* How long it has been since the timer was last started in milliseconds. */
-	double getTime()
-	{
+	double getTime() {
 		gettimeofday(&timer, NULL);
 		currentTime = timer.tv_sec+(timer.tv_usec/1000000.0);
 		return (currentTime-startTime)*1000.0;
-	};
+	}
 };
 #endif
 

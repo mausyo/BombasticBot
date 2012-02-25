@@ -50,14 +50,12 @@ struct Square
 	int hillPlayer;
 	int antPlayer;
 
-	Square() : isVisible(false), isWater(false), isHill(false), isFood(false)
-	{
+	Square() : isVisible(false), isWater(false), isHill(false), isFood(false) {
 		hillPlayer = antPlayer = -1;
 	}
 
 	/** Resets the information for the square except water information. */
-	void reset()
-	{
+	void reset() {
 		isVisible = isHill = isFood = false;
 		hillPlayer = antPlayer = -1;
 	}
@@ -66,7 +64,6 @@ struct Square
 struct State
 {
 	/** False while we keep playing. */
-
 	bool gameOver;
 
 	int currentTurnNumber;
@@ -87,8 +84,7 @@ struct State
 	Timer timer;
 
 	/** Constructor creates the map proper. */
-	State() : gameOver(false), currentTurnNumber(0)
-	{
+	State() : gameOver(false), currentTurnNumber(0)	{
 		for (int i = 0; i < MAXIMUM_MAP_SIZE; ++i) {
 			grid.push_back(std::vector<Square>(MAXIMUM_MAP_SIZE, Square()));
 		}
@@ -102,7 +98,6 @@ struct State
 
 	/** This is just square of Euclid distance. */
 	double distance(const Location loc1, const Location loc2);
-
 };
 
 /** Method that helps do the IO. */

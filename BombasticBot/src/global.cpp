@@ -1,6 +1,3 @@
-#ifndef GPARAM_H_
-#define GPARAM_H_
-
 #include <cstdint>
 #include <iostream>
 #include <fstream>
@@ -28,8 +25,5 @@ namespace gparam {
 	double turnTime;
 
 	std::ofstream logFile(LOGFILENAME);
-
 }
-
-#endif
 

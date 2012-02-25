@@ -3,8 +3,7 @@
 #include "Logging.h"
 #include "Bot.h"
 
-int main(int argc, char *argv[])
-{
+int main() {
 	std::cout.sync_with_stdio(0); 
 
 	Bot* bot = new Bot();

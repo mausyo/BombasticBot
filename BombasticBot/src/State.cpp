@@ -4,24 +4,25 @@
 #include "State.h"
 
 /* Resets all non-water squares to land and clears the bots ant vector. */
-void State::reset()
-{
+void State::reset() {
 	myAnts.clear();
 	myHills.clear();
 	enemyAnts.clear();
 	enemyHills.clear();
 	food.clear();
 
-	for(int row = 0; row < gparam::mapRows; row++)
-		for(int col = 0; col < gparam::mapColumns; col++)
-			if(!grid[row][col].isWater)
+	for(int row = 0; row < gparam::mapRows; row++) {
+		for(int col = 0; col < gparam::mapColumns; col++) {
+			if(!grid[row][col].isWater) {
 				grid[row][col].reset();
+			}
+		}
+	}
 }
 
 /* Returns the square of Euclid distance between two locations with the edges
 * wrapped. */
-double State::distance(const Location loc1, const Location loc2)
-{
+double State::distance(const Location loc1, const Location loc2) {
 	int d11 = loc1.row - loc2.row;
 	int d1 = d11 < 0 ? -d11 : d11;
 	int d22 = loc1.column - loc2.column;
@@ -33,8 +34,7 @@ double State::distance(const Location loc1, const Location loc2)
 
 /* Marks which squares on the map are visible. This function can be greatly
 * improved! */
-void State::mark_visible()
-{
+void State::mark_visible() {
 	for (int row = 0; row < gparam::mapRows; ++row) {
 		for (int col = 0; col < gparam::mapColumns; ++col) {
 			/* Check of any of the ants sees this. */
@@ -49,8 +49,7 @@ void State::mark_visible()
 }
 
 /* Input functions. */
-std::istream& operator>>(std::istream &is, State &state)
-{
+std::istream& operator>>(std::istream &is, State &state) {
 	int row, col, player;
 	std::string inputType, junk;
 

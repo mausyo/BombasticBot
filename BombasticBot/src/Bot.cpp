@@ -1,13 +1,12 @@
 #include "Bot.h"
 
-void Bot::playGame()
-{
+void Bot::playGame() {
 	/* Reads in game parameters. */
 	LOG("Reading initial parameters.");
 	std::cin >> state;
 	endTurn();
 
-	srand((unsigned int)gparam::seed);
+	srand((unsigned int) gparam::seed);
 
 	/* Continues to make moves until game is over. */
 	while(std::cin >> state) {
@@ -21,8 +20,7 @@ void Bot::playGame()
 	}
 }
 
-void Bot::makeMoves()
-{
+void Bot::makeMoves() {
 	for (int ant = 0; ant < (int)state.myAnts.size(); ++ant) {
 		/* Try moving this ant in some random direction. */
 		int direction = rand() % 4;
@@ -40,8 +38,7 @@ void Bot::makeMoves()
 	}
 }
 
-void Bot::endTurn()
-{
+void Bot::endTurn() {
 	LOG("Sending endTurn()");
 
 	/* If this wasn't the start game, reset the board. */
